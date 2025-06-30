@@ -12917,6 +12917,12 @@ const skills = {
 				game.broadcastAll(
 					function (player, list) {
 						player.classList.add("out");
+						player.classList.add("mbmowang");
+						player.node.avatar.style.opacity = "0.3";
+						player.node.avatar2.style.opacity = "0.3";
+    					if (!player.node.mbmowang_waiting) {
+    						player.node.mbmowang_waiting = ui.create.div(".mbmowang-waiting", player);
+		                }
 						if (list.includes(player.name1) || player.name1 == "shichangshi") {
 							player.smoothAvatar(false);
 							player.skin.name = player.name1 + "_dead";
@@ -13023,6 +13029,13 @@ const skills = {
 					"step 0";
 					trigger._mbmowang_return = true;
 					game.broadcastAll(function (player) {
+						if (player.node.mbmowang_waiting) {
+    						player.node.mbmowang_waiting.delete();
+    						delete player.node.mbmowang_waiting;
+    					}
+						player.node.avatar2.style.opacity = null;
+						player.node.avatar.style.opacity = null;
+						player.classList.remove("mbmowang");
 						player.classList.remove("out");
 					}, trigger.player);
 					game.log(trigger.player, "移回了游戏");
