@@ -2973,6 +2973,25 @@ div:not(.handcards) > .card > .info > span,
 	transform: rotate(180deg);
 }
 
+/*十常侍休整*/
+.mbmowang {
+    opacity: 1 !important;
+}
+.mbmowang-waiting {
+    opacity: 1 !important;
+	pointer-events: none;
+	left: 0%;
+	top: 0%;
+	width: 100%;
+	height: 100%;
+    background-image: url("../../image/card/mbmowang-waiting.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    z-index: 7 !important;
+}
+
 /*--------位置(8人)------*/
 [data-number="8"] > .player[data-position="1"] {
 	top: calc(200% / 3 - 90px);
